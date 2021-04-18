@@ -2,9 +2,11 @@ import ProfileInfo from "./ProfileInfo";
 import TopImg from "./TopImg";
 import Wall from "./Wall";
 
+import profile from './Profile.module.css';
+
 const Profile = () => {
     return (
-        <div className="profile">
+        <div className={profile.profile}>
             <TopImg />
             <ProfileInfo />
             <Wall />

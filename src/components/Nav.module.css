@@ -1,0 +1,12 @@
+.nav {
+    grid-area: nav;
+}
+.nav_list {
+    list-style-type: none;
+}
+.item > a {
+    color:dodgerblue;
+}
+.active {
+    font-weight: bold;
+}

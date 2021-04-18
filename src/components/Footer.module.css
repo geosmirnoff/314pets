@@ -1,0 +1,7 @@
+.footer {
+    grid-area: footer;
+    padding-bottom: 50px;
+}
+.copy {
+    text-align: center;
+}

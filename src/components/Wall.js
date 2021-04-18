@@ -1,3 +1,5 @@
+import wall from './Wall.module.css';
+
 const Wall = () => {
     return (
         <div className="wall">
@@ -9,9 +11,9 @@ const Wall = () => {
                 </form>
             </div>
             <div className="post-wall">
-                <section className="post-content">Мой человек - долбоящер</section>
-                <section className="post-content">Давно меня не гладили</section>
-                <section className="post-content">100 дней без валерьянки...</section>
+                <section className={wall.item}>Мой человек - долбоящер <a href='#s'>Далее...</a></section>
+                <section className={wall.item}>Давно меня не гладили <a href='#s'>Далее...</a></section>
+                <section className={wall.item}>100 дней без валерьянки... <a href='#s'>Далее...</a></section>
             </div>
       </div>
     );

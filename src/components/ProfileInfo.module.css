@@ -1,0 +1,20 @@
+.info {
+    padding: 10px;
+    grid-area: profile-info;
+    display: grid;
+    grid-template-rows: 200px;
+    grid-template-columns: auto 1fr;
+    grid-template-areas: 
+    "profile-img profile-descr";
+  }
+.img {
+    grid-area: profile-img;
+    margin: auto 10px 10px auto;
+    width: 200px;
+}
+.description {
+    grid-area: profile-descr;
+}
+.description > p {
+    margin: 5px auto;
+}

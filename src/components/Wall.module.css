@@ -1,0 +1,10 @@
+.wall {
+    /* margin-top: 1000px; */
+    grid-area: wall;
+    padding: 10px;
+}
+.item {
+    background-color: cornsilk;
+    margin: 10px auto auto auto;
+    padding: 10px;
+  }

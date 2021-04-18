@@ -9,65 +9,6 @@
     "nav    profile"
     "footer footer";
 }
-.app-wrapper > .nav, .header, .footer {
+.app-wrapper > nav, header, footer {
   background-color: lightcyan;
-}
-.header {
-  grid-area: header;
-}
-.nav {
-  grid-area: nav;
-}
-.nav-list {
-  list-style-type: none;
-}
-.profile {
-  grid-area: profile;
-  display: grid;
-  grid-template-rows: 100px 200px auto;
-  grid-template-columns: 1fr;
-  grid-template-areas: 
-  "top-img "
-  "profile-info"
-  "wall";
-}
-.top-img {
-  grid-area: top-img;
-}
-.profile-info {
-  padding: 10px;
-  grid-area: profile-info;
-  display: grid;
-  grid-template-rows: 200px;
-  grid-template-columns: auto 1fr;
-  grid-template-areas: 
-  "profile-img profile-descr";
-}
-.profile-img {
-  grid-area: profile-img;
-  margin: auto 10px 10px auto;
-  width: 200px;
-}
-.profile-description {
-  grid-area: profile-descr;
-}
-.profile-description > p {
-  margin: 5px auto;
-}
-.wall {
-  /* margin-top: 1000px; */
-  grid-area: wall;
-  padding: 10px;
-}
-.post-content {
-  background-color: cornsilk;
-  margin: 10px auto auto auto;
-  padding: 10px;
-}
-.footer {
-  grid-area: footer;
-  padding-bottom: 50px;
-}
-.copy {
-  text-align: center;
 }
