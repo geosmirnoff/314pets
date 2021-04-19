@@ -1,8 +1,9 @@
+import Post from './Post/Post';
 import wall from './Wall.module.css';
 
 const Wall = () => {
     return (
-        <div className="wall">
+        <div className={wall.wall}>
             <p className="wall-p"><strong>Микроблог-стена</strong></p>
             <div className="post-form">
                 <form name="new-post">
@@ -11,9 +12,9 @@ const Wall = () => {
                 </form>
             </div>
             <div className="post-wall">
-                <section className={wall.item}>Мой человек - долбоящер <a href='#s'>Далее...</a></section>
-                <section className={wall.item}>Давно меня не гладили <a href='#s'>Далее...</a></section>
-                <section className={wall.item}>100 дней без валерьянки... <a href='#s'>Далее...</a></section>
+                <Post />
+                <Post />
+                <Post />
             </div>
       </div>
     );

@@ -1,0 +1,5 @@
+.wall {
+    /* margin-top: 1000px; */
+    grid-area: wall;
+    padding: 10px;
+}

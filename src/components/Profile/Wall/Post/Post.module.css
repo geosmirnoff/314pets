@@ -1,0 +1,49 @@
+.item {
+    background-color: cornsilk;
+    margin: 10px auto auto auto;
+    padding: 10px;
+    display: grid;
+    grid-template-rows: 25px 25px 1fr 25px;
+    grid-template-columns: 50px 1fr;
+    grid-template-areas: 
+        "avatar author"
+        "avatar date"
+        "body body"
+        "likes likes";
+}
+.item img {
+    width: 50px;
+    border-radius: 25px;
+    margin: auto 20px auto auto;
+    
+}
+.avatar {
+    grid-area: avatar;
+}
+.author {
+    grid-area: author;
+    font-weight: bold;
+    
+    margin: 0 auto auto 15px;
+}
+.date {
+    grid-area: date;
+    color: slategrey;
+    font-size: 0.8em;
+    margin: 0 auto auto 15px;
+}
+.body {
+    grid-area: body;
+    margin: 15px auto 15px 0;
+}
+.likes {
+    grid-area: likes;
+}
+.likes img {
+    width: 22px;
+    float: left;
+    margin: 3px 5px auto 0;
+}
+.likes_number {
+    font-size: 1.2em;
+}

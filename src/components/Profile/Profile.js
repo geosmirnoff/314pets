@@ -1,6 +1,6 @@
 import ProfileInfo from "./ProfileInfo";
 import TopImg from "./TopImg";
-import Wall from "./Wall";
+import Wall from "./Wall/Wall";
 
 import profile from './Profile.module.css';
 
