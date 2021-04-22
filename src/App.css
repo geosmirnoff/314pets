@@ -6,9 +6,12 @@
   grid-template-columns: 200px 1fr;
   grid-template-areas: 
     "header header"
-    "nav    profile"
+    "nav    main"
     "footer footer";
 }
 .app-wrapper > nav, header, footer {
   background-color: lightcyan;
+}
+.app-wrapper-main {
+  grid-area: main;
 }

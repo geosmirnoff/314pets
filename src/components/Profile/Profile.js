@@ -7,6 +7,7 @@ import profile from './Profile.module.css';
 const Profile = () => {
     return (
         <div className={profile.profile}>
+        {/* <div> */}
             <TopImg />
             <ProfileInfo />
             <Wall />
