@@ -1,3 +1,18 @@
-.header {
-    color: midnightblue;
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-areas: 
+        "list dialog";
+}
+
+/* List of dialogs */
+.list {
+    grid-area: list;
+    border-right: 1px dotted darkcyan;
+}
+
+/* Current dialog */
+.current {
+    grid-area: dialog;
+    min-height: 200px;
 }

@@ -10,7 +10,7 @@ const NavItem = (props) => {
     }
 
     return (
-        <li className={item_style}><a href="#s">{props.item}</a></li>
+        <li className={item_style}><a href={props.link}>{props.item}</a></li>
     );
 }
 
