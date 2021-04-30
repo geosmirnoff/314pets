@@ -1,0 +1,42 @@
+.item {
+    display: grid;
+    grid-template-columns: 1fr 4fr 2fr;
+    grid-template-rows: 1fr 30px;
+    grid-template-areas: 
+        "img name date"
+        "img txt txt";
+    border-bottom: 1px dotted darkcyan;
+}
+.from_img {
+    grid-area: img;
+    padding: 5px;
+    /* background-color: teal; */
+}
+.from_img img {
+    border-radius: 16px;
+    width: 32px;
+    height: 32px;
+}
+.from_name {
+    grid-area: name;
+    font-weight: bold;
+    color: midnightblue;
+    padding: 10px 0 0 5px;
+    font-size: 0.9em;
+    /* background-color: springgreen; */
+}
+.text {
+    grid-area: txt;
+    font-size: 0.9em;
+    color: darkslategray;
+    padding: 0 0 0 5px;
+    /* background-color: tomato; */
+}
+.date {
+    grid-area: date;
+    color: slategray;
+    font-size: 0.7em;
+    text-align: center;
+    padding: 12px 0;
+    /* background-color: violet; */
+}

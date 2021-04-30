@@ -14,5 +14,5 @@
 /* Current dialog */
 .current {
     grid-area: dialog;
-    min-height: 200px;
+    min-height: 400px;
 }
