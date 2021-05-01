@@ -10,7 +10,7 @@ const Chats = (props) => {
                 <ChatList />
             </div>
             <div className={chats.current}>
-                <CurrentChat />
+                <CurrentChat companion_name="Птицептиц" companion_img="https://www.meme-arsenal.com/memes/67e204168b032eea544ad1a45f880945.jpg" />
             </div>
         </div>
     );

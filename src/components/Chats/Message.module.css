@@ -1,0 +1,22 @@
+.msg {
+    border-radius: 5px;
+    padding: 10px;
+    max-width: 60%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+    color: darkslategrey;
+}
+.to_me {
+    background-color: lightblue;
+    margin: 5px auto 5px 10px;
+}
+.from_me {
+    background-color:lightgreen;
+    margin: 5px 10px 5px auto;
+}
+.time {
+    text-align: right;
+    color: slategray;
+    font-size: 0.75em;
+}

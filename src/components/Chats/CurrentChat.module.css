@@ -1,3 +1,53 @@
 .wrapper {
     display: block;
 }
+.companion {
+    border-bottom: 1px dotted darkcyan;
+    display: grid;
+    grid-template-columns: 50px 1fr;
+    grid-template-rows: 50px;
+    grid-template-areas: 
+        "img name";
+}
+.companion img {
+    width: 40px;
+    height: 40px;
+    border-radius: 25px;
+    margin: 5px;
+    grid-area: img;
+}
+.companion p {
+    grid-area: name;
+    font-weight: bold;
+    font-size: 0.9em;
+    color: midnightblue;
+    margin: 15px auto auto 5px;
+}
+.chat {
+    overflow: auto;
+    max-height: 300px;
+}
+.send_msg {
+    border-top: 1px dotted darkcyan;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    grid-template-rows: 30px;
+    grid-template-areas: "field btn";
+    gap: 10px;
+}
+.msg_field {
+    border: 1px solid darkcyan;
+    border-radius: 5px;
+    grid-area: field;
+    outline: none;
+    color: darkslategray;
+    text-indent: 10px;
+}
+.send_btn {
+    grid-area: btn;
+    border: 0;
+    border-radius: 5px;
+    background-color: royalblue;
+    color:ivory
+}
