@@ -1,6 +1,6 @@
-import item from './MessageItem.module.css';
+import item from './ChatItem.module.css';
 
-const MessageItem = (props) => {
+const ChatItem = (props) => {
     return (
         <div className={item.item}>
             <div className={item.from_img}>
@@ -13,4 +13,4 @@ const MessageItem = (props) => {
     );
 }
 
-export default MessageItem;
+export default ChatItem;

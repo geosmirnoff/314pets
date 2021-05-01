@@ -2,17 +2,17 @@
     display: grid;
     grid-template-columns: 1fr 2fr;
     grid-template-areas: 
-        "list dialog";
+        "list chat";
 }
 
-/* List of dialogs */
+/* List of chats */
 .list {
     grid-area: list;
     border-right: 1px dotted darkcyan;
 }
 
-/* Current dialog */
+/* Current chat */
 .current {
-    grid-area: dialog;
+    grid-area: chat;
     min-height: 400px;
 }

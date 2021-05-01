@@ -4,9 +4,9 @@ import Header from './components/Header/Header';
 import Nav from './components/Nav/Nav';
 import Footer from './components/Footer/Footer';
 import Profile from './components/Profile/Profile';
-import Messages from './components/Messages/Messages';
 import { Route } from 'react-router';
 import { BrowserRouter } from 'react-router-dom';
+import Chats from './components/Chats/Chats';
 
 const App = () => {
   return (
@@ -16,7 +16,7 @@ const App = () => {
         <Nav />
         <div className="app-wrapper-main">
           <Route component={Profile} path="/profile" />
-          <Route component={Messages} path="/messages" />
+          <Route component={Chats} path="/chats" />
           {/* <Profile /> */}
           {/* <Messages /> */}
         </div>

@@ -12,7 +12,7 @@ const Nav = () => {
                 <li className={nav.item}><a href="#s">Фотографии</a></li> */}
                 <NavItem item="Профиль" link="/profile" item_style="active" />
                 <NavItem item="Друзья" link="/friends" />
-                <NavItem item="Сообщения" link="/messages" />
+                <NavItem item="Сообщения" link="/chats" />
                 <NavItem item="Фотографии" link="/photo" />
             </ul>
         </nav>
