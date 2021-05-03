@@ -7,6 +7,12 @@
         "img txt txt";
     border-bottom: 1px dotted darkcyan;
 }
+a {
+    text-decoration: none;
+}
+.active div {
+    background-color:lightblue;
+}
 .from_img {
     grid-area: img;
     padding: 5px;
