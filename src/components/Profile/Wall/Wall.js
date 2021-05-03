@@ -3,7 +3,7 @@ import wall from './Wall.module.css';
 
 const Wall = () => {
     
-    let post_data = [
+    let posts_data = [
         {
             author: "Котокот",
             avatar: "https://i.pinimg.com/originals/a7/35/bd/a735bd89df1a0fb4c80ffa583585943e.jpg",
@@ -25,7 +25,16 @@ const Wall = () => {
             body: "100 дней без валерьянки",
             likes_number: "100",
         }
-    ]
+    ];
+
+    let posts = posts_data.map((post) =>
+    
+        <Post author={post.author}
+              avatar={post.avatar}
+              date={post.date}
+              body={post.body}
+              likes_number={post.likes_number} />
+    );
 
     return (
         <div className={wall.wall}>
@@ -37,23 +46,12 @@ const Wall = () => {
                 </form>
             </div>
             <div className="post-wall">
-                <Post author={post_data[0].author}
+                { posts }
+                {/* <Post author={post_data[0].author}
                         avatar={post_data[0].avatar}
                         date={post_data[0].date}
                         body={post_data[0].body}
-                        likes_number={post_data[0].likes_number} />
-                
-                <Post author={post_data[1].author}
-                        avatar={post_data[1].avatar}
-                        date={post_data[1].date}
-                        body={post_data[1].body}
-                        likes_number={post_data[1].likes_number} />
-                
-                <Post author={post_data[2].author}
-                        avatar={post_data[2].avatar}
-                        date={post_data[2].date}
-                        body={post_data[2].body}
-                        likes_number={post_data[2].likes_number} />
+                        likes_number={post_data[0].likes_number} /> */}
             </div>
       </div>
     );

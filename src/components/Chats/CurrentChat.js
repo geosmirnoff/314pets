@@ -39,7 +39,14 @@ const CurrentChat = (props) => {
             time: "18:14",
             direction: "to_me"
         }
-    ]
+    ];
+
+    let messages = chat_data.map((msg) => 
+    
+        <Message text={msg.text}
+                 time={msg.time}
+            direction={msg.direction} />
+    );
 
     return (
         <div className={chat.wrapper}>
@@ -48,33 +55,11 @@ const CurrentChat = (props) => {
                 <p>{props.companion_name}</p>
             </div>
             <div className={chat.chat} id="chat">
-                <Message text={chat_data[0].text}
+
+                { messages }
+                {/* <Message text={chat_data[0].text}
                          time={chat_data[0].time}
-                    direction={chat_data[0].direction} />
-                
-                <Message text={chat_data[1].text}
-                         time={chat_data[1].time}
-                    direction={chat_data[1].direction} />
-                
-                <Message text={chat_data[2].text}
-                         time={chat_data[2].time}
-                    direction={chat_data[2].direction} />
-                
-                <Message text={chat_data[3].text}
-                         time={chat_data[3].time}
-                    direction={chat_data[3].direction} />
-                
-                <Message text={chat_data[4].text}
-                         time={chat_data[4].time}
-                    direction={chat_data[4].direction} />
-                
-                <Message text={chat_data[5].text}
-                         time={chat_data[5].time}
-                    direction={chat_data[5].direction} />
-                
-                <Message text={chat_data[6].text}
-                         time={chat_data[6].time}
-                    direction={chat_data[6].direction} />
+                    direction={chat_data[0].direction} /> */}
             </div>
             <div className={chat.send_msg}>
                 <input type="text" className={chat.msg_field} />
