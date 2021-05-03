@@ -3,37 +3,13 @@ import list from './ChatList.module.css';
 
 const ChatList = (props) => {
 
-    let items_data = [
-        {
-            from_id: "id1",
-            from_img: "https://pbs.twimg.com/profile_images/938269312166563840/tbT6X3eU.jpg",
-            from_name: "Пёсопёс",
-            text: "Йо, петух, стрела за гаражами",
-            date: "30.04.21"
-        },
-        {
-            from_id: "id2",
-            from_img: "https://krasivosti.pro/uploads/posts/2021-04/1618486033_16-krasivosti_pro-p-riba-v-ochkakh-ribi-krasivo-foto-17.jpg",
-            from_name: "Рыборыб",
-            text: "Есть чо? А еси найду?",
-            date: "29.04.21"
-        },
-        {
-            from_id: "id3",
-            from_img: "https://wallbox.ru/resize/640x960/wallpapers/main/201546/20309cc1d731ed6.jpg",
-            from_name: "Крысокрыс",
-            text: "Го пить, я создал",
-            date: "28.04.21"
-        },
-    ]
-    
-    let chat_items = items_data.map((items) => 
+    let chat_items = props.chat_items_data.map((item) => 
         
-        <ChatItem from_img={items.from_img}
-                  from_name={items.from_name}
-                  text={items.text}
-                  date={items.date}
-                  from_id={items.from_id} />
+        <ChatItem from_img={item.from_img}
+                  from_name={item.from_name}
+                  text={item.text}
+                  date={item.date}
+                  from_id={item.from_id} />
     );
 
     return (

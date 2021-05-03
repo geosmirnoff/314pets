@@ -1,33 +1,11 @@
 import Post from './Post/Post';
 import wall from './Wall.module.css';
 
-const Wall = () => {
+const Wall = (props) => {
     
-    let posts_data = [
-        {
-            author: "Котокот",
-            avatar: "https://i.pinimg.com/originals/a7/35/bd/a735bd89df1a0fb4c80ffa583585943e.jpg",
-            date: "20.04.2021",
-            body: "Мой человек - долбоящер",
-            likes_number: "300"
-        },
-        {
-            author: "Котокот",
-            avatar: "https://i.pinimg.com/originals/a7/35/bd/a735bd89df1a0fb4c80ffa583585943e.jpg",
-            date: "19.04.2021",
-            body: "Давненько меня не гладили",
-            likes_number: "200",
-        },
-        {
-            author: "Котокот",
-            avatar: "https://i.pinimg.com/originals/a7/35/bd/a735bd89df1a0fb4c80ffa583585943e.jpg",
-            date: "18.04.2021",
-            body: "100 дней без валерьянки",
-            likes_number: "100",
-        }
-    ];
+    // let posts_data = props.posts_data;
 
-    let posts = posts_data.map((post) =>
+    let posts = props.posts_data.map((post) =>
     
         <Post author={post.author}
               avatar={post.avatar}
