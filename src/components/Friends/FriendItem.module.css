@@ -1,0 +1,47 @@
+.wrapper {
+    padding: 10px;
+    display: grid;
+    grid-template-rows: 33px 33px 33px;
+    grid-template-columns: 99px 2fr 1fr;
+    grid-template-areas: 
+        "avatar name name"
+        "avatar age actions"
+        "avatar age actions";
+    border-bottom: 1px dotted darkcyan; 
+}
+.avatar {
+    width: 99px;
+    height: 99px;
+    grid-area: avatar;
+    /* background-color: lawngreen; */
+}
+.avatar img {
+    width: inherit;
+    height: inherit;
+    border-radius: 50px;
+}
+.name {
+    font-weight: bold;
+    color: midnightblue;
+    grid-area: name;
+    /* background-color: lightseagreen; */
+    padding: 10px 0 0 10px;
+}
+.age {
+    color:slategray;
+    font-size: 0.9em;
+    grid-area: age;
+    /* background-color: maroon; */
+    padding: 10px 0 0 10px;
+}
+.actions {
+    font-size: 0.9em;
+    grid-area: actions;
+    /* background-color: orange; */
+}
+.actions_list {
+    list-style-type: none;
+}
+.actions_list a {
+    color:royalblue;
+}

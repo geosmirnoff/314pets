@@ -7,6 +7,7 @@ import Profile from './components/Profile/Profile';
 import { Route } from 'react-router';
 import { BrowserRouter } from 'react-router-dom';
 import Chats from './components/Chats/Chats';
+import Friends from './components/Friends/Friends';
 
 const App = (props) => {
 
@@ -27,6 +28,9 @@ const App = (props) => {
           <Route path="/chats" 
                  render={() => <Chats chat_items_data={props.chat_items_data} current_chat_data={props.current_chat_data}
                                       companion_name={props.companion_name} companion_img={props.companion_img} />} />
+          <Route path="/friends"
+                 render={() => <Friends friend_items_data={props.friend_items_data} />} />
+          
           {/* <Route component={Profile} path="/profile" />
           <Route component={Chats} path="/chats" /> */}
           {/* <Profile /> */}

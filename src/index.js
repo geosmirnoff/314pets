@@ -114,13 +114,41 @@ let posts_data = [
   }
 ];
 
+let friend_items_data = [
+  {
+    id: "id2",
+    avatar: "https://pbs.twimg.com/profile_images/938269312166563840/tbT6X3eU.jpg",
+    name: "Пёсопёс",
+    age: "5"
+  },
+  {
+    id: "id3",
+    avatar: "https://krasivosti.pro/uploads/posts/2021-04/1618486033_16-krasivosti_pro-p-riba-v-ochkakh-ribi-krasivo-foto-17.jpg",
+    name: "Рыборыб",
+    age: "10"
+  },
+  {
+    id: "id4",
+    avatar: "https://wallbox.ru/resize/640x960/wallpapers/main/201546/20309cc1d731ed6.jpg",
+    name: "Крысокрыс",
+    age: "15"
+  },
+  {
+    id: "id5",
+    avatar: "https://www.meme-arsenal.com/memes/67e204168b032eea544ad1a45f880945.jpg",
+    name: "Птицептиц",
+    age: "20"
+  },
+]
+
 ReactDOM.render(
   <React.StrictMode>
     <App chat_items_data={chat_items_data} 
          current_chat_data={current_chat_data}
          companion_name={companion_name}
          companion_img={companion_img}
-         posts_data={posts_data} />
+         posts_data={posts_data}
+         friend_items_data={friend_items_data} />
   </React.StrictMode>,
   document.getElementById('root')
 );
