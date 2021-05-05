@@ -1,5 +1,6 @@
+import React from 'react';
 import Post from './Post/Post';
-import wall from './Wall.module.css';
+import style from './Wall.module.css';
 
 const Wall = (props) => {
     
@@ -14,13 +15,22 @@ const Wall = (props) => {
               likes_number={post.likes_number} />
     );
 
+    let newPostItem = React.createRef();
+
+    let addPost = () => {
+        
+        let text = newPostItem.current.value;
+        
+        alert(text);
+    }
+
     return (
-        <div className={wall.wall}>
+        <div className={style.wall}>
             <p className="wall-p"><strong>Микроблог-стена</strong></p>
             <div className="post-form">
                 <form name="new-post">
-                    <textarea wrap="hard" rows="4" cols="50" maxLength="300" placeholder="Введите текст..."></textarea><br />
-                    <button>Отправить</button>
+                    <textarea ref={ newPostItem } wrap="hard" rows="4" cols="50" maxLength="300" placeholder="Введите текст..."></textarea><br />
+                    <button onClick={ addPost }>Отправить</button>
                 </form>
             </div>
             <div className="post-wall">

@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import nav_item from './NavItem.module.css';
+import style from './NavItem.module.css';
 
 const NavItem = (props) => {
 
@@ -11,7 +11,7 @@ const NavItem = (props) => {
     }*/
 
     return (
-        <li className={nav_item.item}><NavLink to={props.link} activeClassName={nav_item.active}>{props.item}</NavLink></li>
+        <li className={style.item}><NavLink to={props.link} activeClassName={style.active}>{props.item}</NavLink></li>
     );
 }
 

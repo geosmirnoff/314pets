@@ -1,13 +1,13 @@
-import friend from './FriendItem.module.css';
+import style from './FriendItem.module.css';
 
 const FriendItem = (props) => {
     return (
-        <div className={friend.wrapper}>
-            <section className={friend.avatar}><img src={props.avatar} alt="ava" /></section>
-            <section className={friend.name}>{props.name}</section>
-            <section className={friend.age}>{props.age} лет</section>
-            <section className={friend.actions}>
-                <ul className={friend.actions_list}>
+        <div className={style.wrapper}>
+            <section className={style.avatar}><img src={props.avatar} alt="ava" /></section>
+            <section className={style.name}>{props.name}</section>
+            <section className={style.age}>{props.age} лет</section>
+            <section className={style.actions}>
+                <ul className={style.actions_list}>
                     <li><a href="#c">Зайти в чат</a></li>
                     <li><a href="#u">Раздружиться</a></li>
                 </ul>

@@ -1,5 +1,5 @@
 import FriendItem from './FriendItem';
-import friends from './Friends.module.css';
+import style from './Friends.module.css';
 
 const Friends = (props) => {
     
@@ -8,7 +8,7 @@ const Friends = (props) => {
         <FriendItem avatar={item.avatar} name={item.name} age={item.age} />
     );
     return (
-        <div className={friends.wrapper}>
+        <div className={style.wrapper}>
              {friend_items}           
         </div>
     );

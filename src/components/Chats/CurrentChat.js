@@ -1,4 +1,4 @@
-import chat from './CurrentChat.module.css';
+import style from './CurrentChat.module.css';
 import Message from './Message';
 
 const CurrentChat = (props) => {
@@ -11,21 +11,21 @@ const CurrentChat = (props) => {
     );
 
     return (
-        <div className={chat.wrapper}>
-            <div className={chat.companion}>
+        <div className={style.wrapper}>
+            <div className={style.companion}>
                 <img src={props.companion_img} alt="companion" />
                 <p>{props.companion_name}</p>
             </div>
-            <div className={chat.chat} id="chat">
+            <div className={style.chat} id="chat">
 
                 { messages }
                 {/* <Message text={chat_data[0].text}
                          time={chat_data[0].time}
                     direction={chat_data[0].direction} /> */}
             </div>
-            <div className={chat.send_msg}>
-                <input type="text" className={chat.msg_field} />
-                <button className={chat.send_btn}>Отправить</button>
+            <div className={style.send_msg}>
+                <input type="text" className={style.msg_field} />
+                <button className={style.send_btn}>Отправить</button>
             </div>
         </div>
     );

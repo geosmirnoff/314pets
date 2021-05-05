@@ -32,8 +32,6 @@ const App = (props) => {
           
           {/* <Route component={Profile} path="/profile" />
           <Route component={Chats} path="/chats" /> */}
-          {/* <Profile /> */}
-          {/* <Messages /> */}
         </div>
         <Footer />
       </div>

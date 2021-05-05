@@ -1,5 +1,5 @@
 import ChatItem from './ChatItem';
-import list from './ChatList.module.css';
+import style from './ChatList.module.css';
 
 const ChatList = (props) => {
 
@@ -13,7 +13,7 @@ const ChatList = (props) => {
     );
 
     return (
-        <div className={list.wrapper}>
+        <div className={style.wrapper}>
             {chat_items}
             {/* <ChatItem from_img={item_data[0].from_img}
                         from_name={item_data[0].from_name}

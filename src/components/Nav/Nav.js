@@ -1,10 +1,10 @@
-import nav from './Nav.module.css';
+import style from './Nav.module.css';
 import NavItem from './NavItem';
 
 const Nav = () => {
     return (
-        <nav className={nav.nav}>
-            <ul className={nav.nav_list}>
+        <nav className={style.nav}>
+            <ul className={style.nav_list}>
                 {/* Применяем несколько классов с помощью ШАБЛОННЫХ СТРОК: */}
                 {/* <li className={`${nav.item} ${nav.active}`}><a href="#s">Профиль</a></li>
                 <li className={nav.item}><a href="#s">Друзья</a></li>

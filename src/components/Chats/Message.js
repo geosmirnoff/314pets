@@ -1,4 +1,4 @@
-import msg from './Message.module.css'
+import style from './Message.module.css'
 
 const Message = (props) => {
     
@@ -6,19 +6,19 @@ const Message = (props) => {
 
     switch (props.direction) {
 
-        case "to_me": direction = msg.to_me;
+        case "to_me": direction = style.to_me;
         break;
 
-        case "from_me": direction = msg.from_me;
+        case "from_me": direction = style.from_me;
         break;
 
-        default: direction = msg.to_me;
+        default: direction = style.to_me;
     }
 
     return (
-        <div className={`${msg.msg} ${direction}`}>
+        <div className={`${style.msg} ${direction}`}>
             <section>{props.text}</section>
-            <section className={msg.time}>{props.time}</section>
+            <section className={style.time}>{props.time}</section>
         </div>
     );
 }
