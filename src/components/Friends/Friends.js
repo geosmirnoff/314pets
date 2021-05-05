@@ -3,7 +3,7 @@ import friends from './Friends.module.css';
 
 const Friends = (props) => {
     
-    let friend_items = props.friend_items_data.map((item) => 
+    let friend_items = props.data.friend_items_data.map((item) => 
 
         <FriendItem avatar={item.avatar} name={item.name} age={item.age} />
     );

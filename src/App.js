@@ -24,12 +24,11 @@ const App = (props) => {
         <Nav />
         <div className="app-wrapper-main">
           <Route path="/profile" 
-                 render={() => <Profile posts_data={props.posts_data} />} />
+                 render={() => <Profile data={props.state.profile} />} />
           <Route path="/chats" 
-                 render={() => <Chats chat_items_data={props.chat_items_data} current_chat_data={props.current_chat_data}
-                                      companion_name={props.companion_name} companion_img={props.companion_img} />} />
+                 render={() => <Chats data={props.state.chats} />} />
           <Route path="/friends"
-                 render={() => <Friends friend_items_data={props.friend_items_data} />} />
+                 render={() => <Friends data={props.state.friends} />} />
           
           {/* <Route component={Profile} path="/profile" />
           <Route component={Chats} path="/chats" /> */}

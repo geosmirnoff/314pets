@@ -13,7 +13,7 @@ const Profile = (props) => {
         <div>
             <TopImg />
             <ProfileInfo />
-            <Wall posts_data={props.posts_data} />
+            <Wall posts_data={props.data.posts_data} />
         </div>
     );
 }
