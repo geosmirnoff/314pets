@@ -26,21 +26,21 @@ const Wall = (props) => {
 
     return (
         <div className={style.wall}>
-            <p className="wall-p"><strong>Микроблог-стена</strong></p>
-            <div className="post-form">
+            <p className={style.wall_paragraph}>Дуров верни стену</p>
+            <section>
                 <form name="new-post">
-                    <textarea ref={ newPostItem } wrap="hard" rows="4" cols="50" maxLength="300" placeholder="Введите текст..."></textarea><br />
-                    <button onClick={ addPost }>Отправить</button>
+                    <textarea className={style.post_field} ref={ newPostItem } wrap="hard" rows="4" cols="50" maxLength="200" placeholder="Введите текст..."></textarea><br />
+                    <button className={style.send_btn} onClick={ addPost }>Отправить</button>
                 </form>
-            </div>
-            <div className="post-wall">
+            </section>
+            <section>
                 { posts }
                 {/* <Post author={post_data[0].author}
                         avatar={post_data[0].avatar}
                         date={post_data[0].date}
                         body={post_data[0].body}
                         likes_number={post_data[0].likes_number} /> */}
-            </div>
+            </section>
       </div>
     );
 }

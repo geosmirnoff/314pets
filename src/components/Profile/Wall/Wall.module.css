@@ -3,3 +3,25 @@
     grid-area: wall;
     padding: 10px;
 }
+.wall_paragraph {
+    font-weight: bold;
+    background-color: lightcyan;
+    padding: 8px;
+}
+.post_field {
+    border: 1px solid darkcyan;
+    border-radius: 5px;
+    outline: none;
+    color: darkslategray;
+    padding-left: 10px;
+    resize: none;
+}
+
+.send_btn {
+    border: 0;
+    border-radius: 5px;
+    background-color: royalblue;
+    color:ivory;
+    height: 30px;
+    margin-top: 5px;
+}
