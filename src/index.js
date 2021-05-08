@@ -1,22 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+// import React from 'react';
+// import ReactDOM from 'react-dom';
+// import './index.css';
+// import App from './App';
 import state from './redux/state';
+import reportWebVitals from './reportWebVitals';
+import { renderEntireTree } from './render';
 
-ReactDOM.render(
-  <React.StrictMode>
-    {/* <App chat_items_data={state.chat_items_data} 
-         current_chat_data={state.current_chat_data}
-         companion_name={state.companion_name}
-         companion_img={state.companion_img}
-         posts_data={state.posts_data}
-         friend_items_data={state.friend_items_data} /> */}
-    <App state={state} />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+
+// add_post('кококо');
+renderEntireTree(state);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

@@ -1,5 +1,6 @@
 import style from './CurrentChat.module.css';
 import Message from './Message';
+import React from 'react';
 
 const CurrentChat = (props) => {
 
@@ -10,23 +11,37 @@ const CurrentChat = (props) => {
             direction={msg.direction} />
     );
 
+    let newMsgItem = React.createRef();
+
+    let sendMsg = () => {
+        // debugger;
+        // let text = newMsgItem.current.value;
+        props.send_msg();
+    }
+
+    let updateMsgText = () => {
+
+        let text = newMsgItem.current.value;
+        props.update_msg_text(text);
+    }
+    
     return (
         <div className={style.wrapper}>
-            <div className={style.companion}>
+            <section className={style.companion}>
                 <img src={props.companion_img} alt="companion" />
                 <p>{props.companion_name}</p>
-            </div>
-            <div className={style.chat} id="chat">
+            </section>
+            <section className={style.chat}>
 
                 { messages }
                 {/* <Message text={chat_data[0].text}
                          time={chat_data[0].time}
                     direction={chat_data[0].direction} /> */}
-            </div>
-            <div className={style.send_msg}>
-                <input type="text" className={style.msg_field} />
-                <button className={style.send_btn}>Отправить</button>
-            </div>
+            </section>
+            <section className={style.send_msg}>
+                <input value={props.default_msg_val} ref={ newMsgItem } onChange={ updateMsgText } type="text" className={style.msg_field} />
+                <button className={style.send_btn} onClick={ sendMsg } >Отправить</button>
+            </section>
         </div>
     );
 }

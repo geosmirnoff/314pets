@@ -15,7 +15,10 @@ const Chats = (props) => {
             <div className={style.current}>
                 <CurrentChat companion_name={data.companion_name} 
                              companion_img={data.companion_img}
-                             current_chat_data={data.current_chat_data} />
+                             current_chat_data={data.current_chat_data}
+                             default_msg_val={data.default_msg_val}
+                             send_msg={props.send_msg}
+                             update_msg_text={props.update_msg_text} />
             </div>
         </div>
     );

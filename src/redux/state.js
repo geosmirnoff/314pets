@@ -1,5 +1,8 @@
+import { renderEntireTree } from './../render';
+
 let state = {
     chats: {
+        default_msg_val: "Йоу собаки",
         chat_items_data: [
             {
                 from_id: "id2",
@@ -85,27 +88,28 @@ let state = {
         companion_img: "https://www.meme-arsenal.com/memes/67e204168b032eea544ad1a45f880945.jpg",
     },
     profile: {
+        new_post_text: "Путин - вор",
         posts_data: [
             {
                 author: "Котокот",
                 avatar: "https://i.pinimg.com/originals/a7/35/bd/a735bd89df1a0fb4c80ffa583585943e.jpg",
                 date: "20.04.2021",
                 body: "Мой человек - долбоящер",
-                likes_number: "300"
+                likes_number: 300
             },
             {
                 author: "Котокот",
                 avatar: "https://i.pinimg.com/originals/a7/35/bd/a735bd89df1a0fb4c80ffa583585943e.jpg",
                 date: "19.04.2021",
                 body: "Давненько меня не гладили",
-                likes_number: "200",
+                likes_number: 200,
             },
             {
                 author: "Котокот",
                 avatar: "https://i.pinimg.com/originals/a7/35/bd/a735bd89df1a0fb4c80ffa583585943e.jpg",
                 date: "18.04.2021",
                 body: "100 дней без валерьянки",
-                likes_number: "100",
+                likes_number: 100,
             },
         ],
     },
@@ -138,5 +142,62 @@ let state = {
         ],
     },
 };
+
+export let update_post_text = (text) => {
+
+    state.profile.new_post_text = text;
+    renderEntireTree(state);
+}
+
+export let update_msg_text = (text) => {
+
+    state.chats.default_msg_val = text;
+    renderEntireTree(state);
+}
+
+let format_date = (date) => {
+
+    let day = date.getDate();
+    if (day < 10) day = "0" + day;
+
+    let month = date.getMonth() + 1;
+    if (month < 10) month = "0" + month;
+
+    let year = date.getFullYear();
+
+    return `${day}.${month}.${year}`;
+}
+
+export let send_msg = () => {
+    
+    let msg_time = new Date();
+
+    let new_chat_item = {
+        companion_id: "id5",
+        message_id: "msg8",
+        text: state.chats.default_msg_val,
+        date: format_date(new Date()),
+        time: msg_time.toLocaleTimeString(),
+        direction: "from_me",
+    }
+    state.chats.current_chat_data.push(new_chat_item);
+    renderEntireTree(state);
+    state.chats.default_msg_val = "";
+}
+
+export let add_post = () => {
+
+    let new_post = {
+        author: "Котокот",
+        avatar: "https://i.pinimg.com/originals/a7/35/bd/a735bd89df1a0fb4c80ffa583585943e.jpg",
+        date: format_date(new Date()),
+        body: state.profile.new_post_text,
+        likes_number: 0
+    }
+
+    state.profile.posts_data.push(new_post);
+    renderEntireTree(state);
+    state.profile.new_post_text = "";
+}
 
 export default state;

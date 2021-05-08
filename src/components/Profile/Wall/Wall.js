@@ -19,9 +19,15 @@ const Wall = (props) => {
 
     let addPost = () => {
         
-        let text = newPostItem.current.value;
+        //let text = newPostItem.current.value;
         
-        alert(text);
+        props.add_post();
+    }
+
+    let updatePostText = () => {
+
+        let text = newPostItem.current.value;
+        props.update_post_text(text);
     }
 
     return (
@@ -29,8 +35,8 @@ const Wall = (props) => {
             <p className={style.wall_paragraph}>Дуров верни стену</p>
             <section>
                 <form name="new-post">
-                    <textarea className={style.post_field} ref={ newPostItem } wrap="hard" rows="4" cols="50" maxLength="200" placeholder="Введите текст..."></textarea><br />
-                    <button className={style.send_btn} onClick={ addPost }>Отправить</button>
+                    <textarea className={style.post_field} ref={ newPostItem } onChange={ updatePostText } wrap="hard" rows="4" cols="50" maxLength="200" value={props.new_post_text} /><br />
+                    <button type="button" className={style.send_btn} onClick={ addPost }>Отправить</button>
                 </form>
             </section>
             <section>
