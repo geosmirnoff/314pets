@@ -1,4 +1,9 @@
-import { renderEntireTree } from './../render';
+let rerenderEntireTree = null;
+
+export const subscribe = (observer) => {
+    //console.log("subscribe was called")
+    rerenderEntireTree = observer;
+}
 
 let state = {
     chats: {
@@ -143,16 +148,16 @@ let state = {
     },
 };
 
-export let update_post_text = (text) => {
+export const update_post_text = (text) => {
 
     state.profile.new_post_text = text;
-    renderEntireTree(state);
+    rerenderEntireTree();
 }
 
-export let update_msg_text = (text) => {
+export const update_msg_text = (text) => {
 
     state.chats.default_msg_val = text;
-    renderEntireTree(state);
+    rerenderEntireTree();
 }
 
 let format_date = (date) => {
@@ -168,7 +173,7 @@ let format_date = (date) => {
     return `${day}.${month}.${year}`;
 }
 
-export let send_msg = () => {
+export const send_msg = () => {
     
     let msg_time = new Date();
 
@@ -181,11 +186,11 @@ export let send_msg = () => {
         direction: "from_me",
     }
     state.chats.current_chat_data.push(new_chat_item);
-    renderEntireTree(state);
+    rerenderEntireTree();
     state.chats.default_msg_val = "";
 }
 
-export let add_post = () => {
+export const add_post = () => {
 
     let new_post = {
         author: "Котокот",
@@ -196,7 +201,7 @@ export let add_post = () => {
     }
 
     state.profile.posts_data.push(new_post);
-    renderEntireTree(state);
+    rerenderEntireTree();
     state.profile.new_post_text = "";
 }
 
