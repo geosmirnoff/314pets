@@ -1,11 +1,11 @@
-import state, { subscribe } from './redux/state';
+import store/*state, { subscribe }*/ from './redux/state';
 import reportWebVitals from './reportWebVitals';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import { add_post, update_post_text, send_msg, update_msg_text } from './redux/state';
+//import { add_post, update_post_text, send_msg, update_msg_text } from './redux/state';
 
 let renderEntireTree = () => {
 
@@ -17,11 +17,11 @@ let renderEntireTree = () => {
             companion_img={state.companion_img}
             posts_data={state.posts_data}
             friend_items_data={state.friend_items_data} /> */}
-            <App state={state} 
+            <App store={store} /*state={state} 
                  add_post={add_post} 
                  update_post_text={update_post_text} 
                  send_msg={send_msg}
-                 update_msg_text={update_msg_text} />
+                 update_msg_text={update_msg_text}*/ />
         </React.StrictMode>,
         document.getElementById('root')
     );
@@ -30,7 +30,7 @@ let renderEntireTree = () => {
 // add_post('кококо');
 renderEntireTree();
 
-subscribe(renderEntireTree);
+store.subscribe(renderEntireTree);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

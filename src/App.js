@@ -24,17 +24,17 @@ const App = (props) => {
         <Nav />
         <div className="app-wrapper-main">
           <Route path="/profile" 
-                 render={() => <Profile data={props.state.profile} 
-                                        add_post={props.add_post}
-                                        update_post_text={props.update_post_text} />} />
+                 render={() => <Profile data={props.store.getState().profile} 
+                                        add_post={props.store.add_post.bind(props.store)}
+                                        update_post_text={props.store.update_post_text.bind(props.store)} />} />
           
           <Route path="/chats" 
-                 render={() => <Chats data={props.state.chats} 
-                                      send_msg={props.send_msg}
-                                      update_msg_text={props.update_msg_text} />} />
+                 render={() => <Chats data={props.store.getState().chats} 
+                                      send_msg={props.store.send_msg.bind(props.store)}
+                                      update_msg_text={props.store.update_msg_text.bind(props.store)} />} />
           
           <Route path="/friends"
-                 render={() => <Friends data={props.state.friends} />} />
+                 render={() => <Friends data={props.store.getState().friends} />} />
           
           {/* <Route component={Profile} path="/profile" />
           <Route component={Chats} path="/chats" /> */}
