@@ -25,13 +25,16 @@ const App = (props) => {
         <div className="app-wrapper-main">
           <Route path="/profile" 
                  render={() => <Profile data={props.store.getState().profile} 
-                                        add_post={props.store.add_post.bind(props.store)}
-                                        update_post_text={props.store.update_post_text.bind(props.store)} />} />
+                                        /*add_post={props.store.add_post.bind(props.store)}
+                                        update_post_text={props.store.update_post_text.bind(props.store)}*/
+                                        dispatch={props.store.dispatch.bind(props.store)}
+                                        /*post_symbol_limit={props.store.getState().post_symbol_limit}*/ />} />
           
           <Route path="/chats" 
                  render={() => <Chats data={props.store.getState().chats} 
-                                      send_msg={props.store.send_msg.bind(props.store)}
-                                      update_msg_text={props.store.update_msg_text.bind(props.store)} />} />
+                                      /*send_msg={props.store.send_msg.bind(props.store)}
+                                      update_msg_text={props.store.update_msg_text.bind(props.store)}*/
+                                      dispatch={props.store.dispatch.bind(props.store)} />} />
           
           <Route path="/friends"
                  render={() => <Friends data={props.store.getState().friends} />} />

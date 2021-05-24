@@ -14,15 +14,15 @@ const CurrentChat = (props) => {
     let newMsgItem = React.createRef();
 
     let sendMsg = () => {
-        // debugger;
-        // let text = newMsgItem.current.value;
-        props.send_msg();
+        //props.send_msg();
+        props.dispatch({type: "SEND-MSG"});
     }
 
     let updateMsgText = () => {
 
         let text = newMsgItem.current.value;
-        props.update_msg_text(text);
+        //props.update_msg_text(text);
+        props.dispatch({type: "UPDATE-MSG-TEXT", text: text});
     }
     
     return (

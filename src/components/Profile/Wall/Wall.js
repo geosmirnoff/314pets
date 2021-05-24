@@ -21,13 +21,15 @@ const Wall = (props) => {
         
         //let text = newPostItem.current.value;
         
-        props.add_post();
+        //props.add_post();
+        props.dispatch({type: "ADD-POST"});
     }
 
     let updatePostText = () => {
 
         let text = newPostItem.current.value;
-        props.update_post_text(text);
+        //props.update_post_text(text);
+        props.dispatch({type: "UPDATE-POST-TEXT", text: text});
     }
 
     return (
@@ -36,6 +38,7 @@ const Wall = (props) => {
             <section>
                 <form name="new-post">
                     <textarea className={style.post_field} ref={ newPostItem } onChange={ updatePostText } wrap="hard" rows="4" cols="50" maxLength="200" value={props.new_post_text} /><br />
+                    <p>Осталось символов: {props.post_symbol_limit}</p>
                     <button type="button" className={style.send_btn} onClick={ addPost }>Отправить</button>
                 </form>
             </section>

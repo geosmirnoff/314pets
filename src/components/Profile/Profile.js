@@ -15,8 +15,10 @@ const Profile = (props) => {
             <ProfileInfo />
             <Wall posts_data={props.data.posts_data} 
                   new_post_text={props.data.new_post_text} 
-                  add_post={props.add_post}
-                  update_post_text={props.update_post_text} />
+                  /*add_post={props.add_post}
+                  update_post_text={props.update_post_text}*/
+                  dispatch={props.dispatch}
+                  post_symbol_limit={props.data.post_symbol_limit} />
         </div>
     );
 }

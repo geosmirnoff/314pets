@@ -23,7 +23,8 @@ let store = {
     },
 	
 	_state: {
-		chats: {
+		
+        chats: {
 			default_msg_val: "Йоу собаки",
 			chat_items_data: [
 				{
@@ -110,7 +111,8 @@ let store = {
 			companion_img: "https://www.meme-arsenal.com/memes/67e204168b032eea544ad1a45f880945.jpg",
 		},
 		profile: {
-			new_post_text: "Путин - вор",
+			post_symbol_limit: 150 - "Путин - вор".length,
+            new_post_text: "Путин - вор",
 			posts_data: [
 				{
 					author: "Котокот",
@@ -168,51 +170,113 @@ let store = {
     getState() {
         return this._state;
     },
+
+    dispatch(action) {
+
+        switch (action.type) {
+
+            case "UPDATE-POST-TEXT":
+
+                this._state.profile.post_symbol_limit = 150 - action.text.length;
+
+                if (this._state.profile.post_symbol_limit >= 0) {
+
+                    this._state.profile.new_post_text = action.text;
+                    this._rerenderEntireTree();
+                }
+                break;
+            case "ADD-POST":
+
+                let new_post = {
+                    author: "Котокот",
+                    avatar: "https://i.pinimg.com/originals/a7/35/bd/a735bd89df1a0fb4c80ffa583585943e.jpg",
+                    date: format_date(new Date()),
+                    body: this._state.profile.new_post_text,
+                    likes_number: 0
+                }
+
+                this._state.profile.posts_data.push(new_post);
+                this._rerenderEntireTree();
+                this._state.profile.new_post_text = "";
+                this._state.profile.post_symbol_limit = 150;
+                break;
+            
+            case "UPDATE-MSG-TEXT":
+
+                this._state.chats.default_msg_val = action.text;
+		        this._rerenderEntireTree();
+                break;
+
+            case "SEND-MSG":
+
+                let msg_time = new Date();
+
+                let new_chat_item = {
+                    companion_id: "id5",
+                    message_id: "msg8",
+                    text: this._state.chats.default_msg_val,
+                    date: format_date(new Date()),
+                    time: msg_time.toLocaleTimeString(),
+                    direction: "from_me",
+                }
+                this._state.chats.current_chat_data.push(new_chat_item);
+                this._rerenderEntireTree();
+                this._state.chats.default_msg_val = "";
+                break;
+            default:
+                break;
+        }
+    }
 	
-	update_post_text(text) {
+	// update_post_text(text) {
 		
-		this._state.profile.new_post_text = text;
-		this._rerenderEntireTree();
-	},
-	
-	update_msg_text(text) {
+    //     this._state.post_symbol_limit = 150 - text.length;
 
-		this._state.chats.default_msg_val = text;
-		this._rerenderEntireTree();
-	},
+    //     if (this._state.post_symbol_limit >= 0) {
+
+    //         this._state.profile.new_post_text = text;
+    //         this._rerenderEntireTree();
+    //     }
+	// },
 	
-	send_msg() {
+	// update_msg_text(text) {
+
+	// 	this._state.chats.default_msg_val = text;
+	// 	this._rerenderEntireTree();
+	// },
+	
+	// send_msg() {
     
-		let msg_time = new Date();
+	// 	let msg_time = new Date();
 
-		let new_chat_item = {
-			companion_id: "id5",
-			message_id: "msg8",
-			text: this._state.chats.default_msg_val,
-			date: format_date(new Date()),
-			time: msg_time.toLocaleTimeString(),
-			direction: "from_me",
-		}
-		this._state.chats.current_chat_data.push(new_chat_item);
-		this._rerenderEntireTree();
-		this._state.chats.default_msg_val = "";
-	},
+	// 	let new_chat_item = {
+	// 		companion_id: "id5",
+	// 		message_id: "msg8",
+	// 		text: this._state.chats.default_msg_val,
+	// 		date: format_date(new Date()),
+	// 		time: msg_time.toLocaleTimeString(),
+	// 		direction: "from_me",
+	// 	}
+	// 	this._state.chats.current_chat_data.push(new_chat_item);
+	// 	this._rerenderEntireTree();
+	// 	this._state.chats.default_msg_val = "";
+	// },
 	
-	add_post() {
-        debugger;
+	// add_post() {
 
-		let new_post = {
-			author: "Котокот",
-			avatar: "https://i.pinimg.com/originals/a7/35/bd/a735bd89df1a0fb4c80ffa583585943e.jpg",
-			date: format_date(new Date()),
-			body: this._state.profile.new_post_text,
-			likes_number: 0
-		}
+	// 	let new_post = {
+	// 		author: "Котокот",
+	// 		avatar: "https://i.pinimg.com/originals/a7/35/bd/a735bd89df1a0fb4c80ffa583585943e.jpg",
+	// 		date: format_date(new Date()),
+	// 		body: this._state.profile.new_post_text,
+	// 		likes_number: 0
+	// 	}
 
-		this._state.profile.posts_data.push(new_post);
-		this._rerenderEntireTree();
-		this._state.profile.new_post_text = "";
-	}
+	// 	this._state.profile.posts_data.push(new_post);
+	// 	this._rerenderEntireTree();
+	// 	this._state.profile.new_post_text = "";
+    //     this._state.post_symbol_limit = 150;
+	// }
 }
 
 export default store;
