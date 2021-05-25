@@ -1,6 +1,7 @@
 import React from 'react';
 import Post from './Post/Post';
 import style from './Wall.module.css';
+import { addPostCreateAction, updatePostTextCreateAction } from './../../../redux/state';
 
 const Wall = (props) => {
     
@@ -22,14 +23,16 @@ const Wall = (props) => {
         //let text = newPostItem.current.value;
         
         //props.add_post();
-        props.dispatch({type: "ADD-POST"});
+        //props.dispatch({type: "ADD-POST"});
+        props.dispatch(addPostCreateAction());
     }
 
     let updatePostText = () => {
 
         let text = newPostItem.current.value;
         //props.update_post_text(text);
-        props.dispatch({type: "UPDATE-POST-TEXT", text: text});
+        //props.dispatch({type: "UPDATE-POST-TEXT", text: text});
+        props.dispatch(updatePostTextCreateAction(text));
     }
 
     return (

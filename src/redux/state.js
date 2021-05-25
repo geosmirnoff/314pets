@@ -11,6 +11,37 @@ const format_date = (date) => {
     return `${day}.${month}.${year}`;
 }
 
+const ADD_POST = "ADD-POST";
+const UPDATE_POST_TEXT = "UPDATE-POST-TEXT";
+const SEND_MSG = "SEND-MSG";
+const UPDATE_MSG_TEXT = "UPDATE-MSG-TEXT";
+
+export const addPostCreateAction = () => {
+    return {
+        type: ADD_POST
+    }
+}
+
+export const updatePostTextCreateAction = (text) => {
+    return {
+        type: UPDATE_POST_TEXT,
+        text: text
+    }
+}
+
+export const sendMsgCreateAction = () => {
+    return {
+        type: SEND_MSG
+    }
+}
+
+export const updateMsgTextCreateAction = (text) => {
+    return {
+        type: UPDATE_MSG_TEXT,
+        text: text
+    }
+}
+
 let store = {
 
     _rerenderEntireTree() {
@@ -175,7 +206,7 @@ let store = {
 
         switch (action.type) {
 
-            case "UPDATE-POST-TEXT":
+            case UPDATE_POST_TEXT:
 
                 this._state.profile.post_symbol_limit = 150 - action.text.length;
 
@@ -185,7 +216,7 @@ let store = {
                     this._rerenderEntireTree();
                 }
                 break;
-            case "ADD-POST":
+            case ADD_POST:
 
                 let new_post = {
                     author: "Котокот",
@@ -195,19 +226,19 @@ let store = {
                     likes_number: 0
                 }
 
-                this._state.profile.posts_data.push(new_post);
+                this._state.profile.posts_data.splice(0, 0, new_post);
                 this._rerenderEntireTree();
                 this._state.profile.new_post_text = "";
                 this._state.profile.post_symbol_limit = 150;
                 break;
             
-            case "UPDATE-MSG-TEXT":
+            case UPDATE_MSG_TEXT:
 
                 this._state.chats.default_msg_val = action.text;
 		        this._rerenderEntireTree();
                 break;
 
-            case "SEND-MSG":
+            case SEND_MSG:
 
                 let msg_time = new Date();
 

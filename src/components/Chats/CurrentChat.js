@@ -1,6 +1,7 @@
 import style from './CurrentChat.module.css';
 import Message from './Message';
 import React from 'react';
+import { sendMsgCreateAction, updateMsgTextCreateAction } from './../../redux/state';
 
 const CurrentChat = (props) => {
 
@@ -15,14 +16,14 @@ const CurrentChat = (props) => {
 
     let sendMsg = () => {
         //props.send_msg();
-        props.dispatch({type: "SEND-MSG"});
+        props.dispatch(sendMsgCreateAction())
     }
 
     let updateMsgText = () => {
 
         let text = newMsgItem.current.value;
         //props.update_msg_text(text);
-        props.dispatch({type: "UPDATE-MSG-TEXT", text: text});
+        props.dispatch(updateMsgTextCreateAction(text));
     }
     
     return (
