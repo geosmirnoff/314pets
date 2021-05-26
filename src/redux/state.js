@@ -1,4 +1,7 @@
-const format_date = (date) => {
+import { profileReducer } from './profile-reducer';
+import { chatReducer } from './chat-reducer';
+
+export const format_date = (date) => {
 
     let day = date.getDate();
     if (day < 10) day = "0" + day;
@@ -11,36 +14,36 @@ const format_date = (date) => {
     return `${day}.${month}.${year}`;
 }
 
-const ADD_POST = "ADD-POST";
-const UPDATE_POST_TEXT = "UPDATE-POST-TEXT";
-const SEND_MSG = "SEND-MSG";
-const UPDATE_MSG_TEXT = "UPDATE-MSG-TEXT";
+// const ADD_POST = "ADD-POST";
+// const UPDATE_POST_TEXT = "UPDATE-POST-TEXT";
+// const SEND_MSG = "SEND-MSG";
+// const UPDATE_MSG_TEXT = "UPDATE-MSG-TEXT";
 
-export const addPostCreateAction = () => {
-    return {
-        type: ADD_POST
-    }
-}
+// export const addPostCreateAction = () => {
+//     return {
+//         type: ADD_POST
+//     }
+// }
 
-export const updatePostTextCreateAction = (text) => {
-    return {
-        type: UPDATE_POST_TEXT,
-        text: text
-    }
-}
+// export const updatePostTextCreateAction = (text) => {
+//     return {
+//         type: UPDATE_POST_TEXT,
+//         text: text
+//     }
+// }
 
-export const sendMsgCreateAction = () => {
-    return {
-        type: SEND_MSG
-    }
-}
+// export const sendMsgCreateAction = () => {
+//     return {
+//         type: SEND_MSG
+//     }
+// }
 
-export const updateMsgTextCreateAction = (text) => {
-    return {
-        type: UPDATE_MSG_TEXT,
-        text: text
-    }
-}
+// export const updateMsgTextCreateAction = (text) => {
+//     return {
+//         type: UPDATE_MSG_TEXT,
+//         text: text
+//     }
+// }
 
 let store = {
 
@@ -204,7 +207,10 @@ let store = {
 
     dispatch(action) {
 
-        switch (action.type) {
+        this._state.profile = profileReducer(this._state.profile, action);
+        this._state.chats = chatReducer(this._state.chats, action);
+        this._rerenderEntireTree();
+        /*switch (action.type) {
 
             case UPDATE_POST_TEXT:
 
@@ -256,7 +262,7 @@ let store = {
                 break;
             default:
                 break;
-        }
+        }*/
     }
 	
 	// update_post_text(text) {

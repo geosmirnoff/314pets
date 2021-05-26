@@ -1,7 +1,7 @@
 import style from './CurrentChat.module.css';
 import Message from './Message';
 import React from 'react';
-import { sendMsgCreateAction, updateMsgTextCreateAction } from './../../redux/state';
+import { sendMsgCreateAction, updateMsgTextCreateAction } from './../../redux/chat-reducer';
 
 const CurrentChat = (props) => {
 

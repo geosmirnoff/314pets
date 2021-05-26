@@ -1,7 +1,7 @@
 import React from 'react';
 import Post from './Post/Post';
 import style from './Wall.module.css';
-import { addPostCreateAction, updatePostTextCreateAction } from './../../../redux/state';
+import { addPostCreateAction, updatePostTextCreateAction } from './../../../redux/profile-reducer';
 
 const Wall = (props) => {
     
