@@ -1,11 +1,10 @@
-import store/*state, { subscribe }*/ from './redux/state';
+import store from './redux/redux-store';
 import reportWebVitals from './reportWebVitals';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-//import { add_post, update_post_text, send_msg, update_msg_text } from './redux/state';
 
 let renderEntireTree = () => {
 

@@ -1,4 +1,4 @@
-import { format_date } from './state';
+import { format_date } from './store';
 
 const ADD_POST = "ADD-POST";
 const UPDATE_POST_TEXT = "UPDATE-POST-TEXT";
@@ -16,7 +16,35 @@ export const updatePostTextCreateAction = (text) => {
     }
 }
 
-export const profileReducer = (state, action) => {
+let initialState = {
+    post_symbol_limit: 150 - "Путин - вор".length,
+    new_post_text: "Путин - вор",
+    posts_data: [
+        {
+            author: "Котокот",
+            avatar: "https://i.pinimg.com/originals/a7/35/bd/a735bd89df1a0fb4c80ffa583585943e.jpg",
+            date: "20.04.2021",
+            body: "Мой человек - долбоящер",
+            likes_number: 300
+        },
+        {
+            author: "Котокот",
+            avatar: "https://i.pinimg.com/originals/a7/35/bd/a735bd89df1a0fb4c80ffa583585943e.jpg",
+            date: "19.04.2021",
+            body: "Давненько меня не гладили",
+            likes_number: 200,
+        },
+        {
+            author: "Котокот",
+            avatar: "https://i.pinimg.com/originals/a7/35/bd/a735bd89df1a0fb4c80ffa583585943e.jpg",
+            date: "18.04.2021",
+            body: "100 дней без валерьянки",
+            likes_number: 100,
+        },
+    ],
+};
+
+export const profileReducer = (state = initialState, action) => {
 
     switch (action.type) {
 
