@@ -13,7 +13,9 @@ const Wall = (props) => {
               avatar={post.avatar}
               date={post.date}
               body={post.body}
-              likes_number={post.likes_number} />
+              likes_number={post.likes_number}
+              id={post.id}
+              dispatch={props.dispatch} />
     );
 
     let newPostItem = React.createRef();
