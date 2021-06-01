@@ -14,6 +14,7 @@ const Wall = (props) => {
               date={post.date}
               body={post.body}
               likes_number={post.likes_number}
+              liked_by_me={post.liked_by_me}
               id={post.id}
               dispatch={props.dispatch} />
     );
