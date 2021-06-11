@@ -1,15 +1,15 @@
 import post from './Post.module.css';
-import { doLikeCreateAction } from './../../../../redux/profile-reducer';
-
+//import { doLikeCreateAction } from './../../../../redux/profile-reducer';
 
 const Post = (props) => {
 
     let doLike = () => {
 
         let id = props.id;
-        props.dispatch(doLikeCreateAction(id));
+        props.doLike(id);
     }
 
+    // Если есть лайк от текущего пользователя, применяем доп. CSS-класс
     let liked_by_me = (props.liked_by_me === true) ? post.liked_by_me : '';
 
     return (
@@ -22,7 +22,8 @@ const Post = (props) => {
             </article>
             <div className={post.likes}>
                 <img onClick={ doLike } src="https://toppng.com/uploads/preview/dog-paw-print-png-dog-paw-11563597387zsw1pcwdge.png" alt="paw" />
-                <span className={`${post.likes_number} ${liked_by_me}`}>
+                <span className={ `${post.likes_number} ${liked_by_me}` }>
+                    {/* Не отображаем кол-во лайков, если их нет */}
                     { (props.likes_number > 0) ? props.likes_number : '' }
                 </span>
             </div>

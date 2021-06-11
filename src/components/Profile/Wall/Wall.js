@@ -1,7 +1,7 @@
 import React from 'react';
 import Post from './Post/Post';
 import style from './Wall.module.css';
-import { addPostCreateAction, updatePostTextCreateAction } from './../../../redux/profile-reducer';
+//import { addPostCreateAction, updatePostTextCreateAction } from './../../../redux/profile-reducer';
 
 const Wall = (props) => {
     
@@ -16,7 +16,7 @@ const Wall = (props) => {
               likes_number={post.likes_number}
               liked_by_me={post.liked_by_me}
               id={post.id}
-              dispatch={props.dispatch} />
+              doLike={props.doLike} />
     );
 
     let newPostItem = React.createRef();
@@ -27,7 +27,7 @@ const Wall = (props) => {
         
         //props.add_post();
         //props.dispatch({type: "ADD-POST"});
-        props.dispatch(addPostCreateAction());
+        props.addPost();
     }
 
     let updatePostText = () => {
@@ -35,7 +35,7 @@ const Wall = (props) => {
         let text = newPostItem.current.value;
         //props.update_post_text(text);
         //props.dispatch({type: "UPDATE-POST-TEXT", text: text});
-        props.dispatch(updatePostTextCreateAction(text));
+        props.updatePostText(text);
     }
 
     return (

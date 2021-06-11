@@ -16,7 +16,7 @@ const App = (props) => {
   // let companion_name = props.companion_name;
   // let companion_img = props.companion_img;
   // let posts_data = props.posts_data;
-
+  console.log("storestore: "+props.store)
   return (
     <BrowserRouter>
       <div className="app-wrapper">
@@ -24,10 +24,11 @@ const App = (props) => {
         <Nav />
         <div className="app-wrapper-main">
           <Route path="/profile" 
-                 render={() => <Profile data={props.store.getState().profile} 
+                 render={() => <Profile store={props.store}
+                                        /*data={props.store.getState().profile} */
                                         /*add_post={props.store.add_post.bind(props.store)}
                                         update_post_text={props.store.update_post_text.bind(props.store)}*/
-                                        dispatch={props.store.dispatch.bind(props.store)}
+                                        /*dispatch={props.store.dispatch.bind(props.store)}*/
                                         /*post_symbol_limit={props.store.getState().post_symbol_limit}*/ />} />
           
           <Route path="/chats" 
