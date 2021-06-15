@@ -15,16 +15,6 @@ const ChatList = (props) => {
     return (
         <div className={style.wrapper}>
             {chat_items}
-            {/* <ChatItem from_img={item_data[0].from_img}
-                        from_name={item_data[0].from_name}
-                        text={item_data[0].text}
-                        date={item_data[0].date}
-                        from_id={item_data[0].from_id} /> */}
-            {/* <ChatItem from_img="https://pbs.twimg.com/profile_images/938269312166563840/tbT6X3eU.jpg" 
-                         from_name="Пёсопёс" 
-                         text="Йо, петух, стрела за гаражами"
-                         date="30.04.21" 
-                         id="id1" /> */}
         </div>
     );
 }

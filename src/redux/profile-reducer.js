@@ -65,10 +65,11 @@ export const profileReducer = (state = initialState, action) => {
         case UPDATE_POST_TEXT:
 
             state.post_symbol_limit = 150 - action.text.length;
-
+            
             if (state.post_symbol_limit >= 0) {
-
+                
                 state.new_post_text = action.text;
+
                 //this._rerenderEntireTree();
             }
             break;

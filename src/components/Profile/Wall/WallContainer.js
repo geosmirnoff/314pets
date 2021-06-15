@@ -8,24 +8,16 @@ const WallContainer = (props) => {
 
     let addPost = () => {
         
-        //let text = newPostItem.current.value;
-        
-        //props.add_post();
-        //props.dispatch({type: "ADD-POST"});
         props.store.dispatch(addPostCreateAction());
     }
 
     let updatePostText = (text) => {
 
-        //let text = newPostItem.current.value;
-        //props.update_post_text(text);
-        //props.dispatch({type: "UPDATE-POST-TEXT", text: text});
         props.store.dispatch(updatePostTextCreateAction(text));
     }
 
     let doLike = (id) => {
 
-        //let id = props.id;
         props.store.dispatch(doLikeCreateAction(id));
     }
     

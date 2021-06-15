@@ -1,11 +1,8 @@
 import React from 'react';
 import Post from './Post/Post';
 import style from './Wall.module.css';
-//import { addPostCreateAction, updatePostTextCreateAction } from './../../../redux/profile-reducer';
 
 const Wall = (props) => {
-    
-    // let posts_data = props.posts_data;
 
     let posts = props.posts_data.map((post) =>
     
@@ -23,18 +20,13 @@ const Wall = (props) => {
 
     let addPost = () => {
         
-        //let text = newPostItem.current.value;
-        
-        //props.add_post();
-        //props.dispatch({type: "ADD-POST"});
         props.addPost();
     }
 
     let updatePostText = () => {
 
         let text = newPostItem.current.value;
-        //props.update_post_text(text);
-        //props.dispatch({type: "UPDATE-POST-TEXT", text: text});
+        
         props.updatePostText(text);
     }
 
@@ -50,11 +42,6 @@ const Wall = (props) => {
             </section>
             <section>
                 { posts }
-                {/* <Post author={post_data[0].author}
-                        avatar={post_data[0].avatar}
-                        date={post_data[0].date}
-                        body={post_data[0].body}
-                        likes_number={post_data[0].likes_number} /> */}
             </section>
       </div>
     );
