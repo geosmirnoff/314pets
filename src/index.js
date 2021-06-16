@@ -5,13 +5,18 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import { BrowserRouter } from 'react-router-dom';
+import StoreContext from './StoreContext';
 
 let renderEntireTree = () => {
 
     ReactDOM.render(
         <React.StrictMode>
-
-            <App store={store} />
+            <BrowserRouter>
+                <StoreContext.Provider value={store}>
+                    <App /*store={store}*/ />
+                </StoreContext.Provider>
+            </BrowserRouter>
         </React.StrictMode>,
         document.getElementById('root')
     );

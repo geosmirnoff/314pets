@@ -8,10 +8,10 @@ const Chats = (props) => {
         <div className={style.wrapper}>
             <div className={style.list}>
                 {/* List of chats */}
-                <ChatListContainer store={props.store} />
+                <ChatListContainer /*store={props.store}*/ />
             </div>
             <div className={style.current}>
-                <CurrentChatContainer store={props.store} />
+                <CurrentChatContainer /*store={props.store}*/ />
             </div>
         </div>
     );

@@ -1,9 +1,12 @@
 import ChatList from './ChatList';
+import StoreContext from './../../StoreContext';
 
-const ChatListContainer = (props) => {
+const ChatListContainer = () => {
 
     return (
-        <ChatList chat_items_data={props.store.getState().chats.chat_items_data} />
+        <StoreContext.Consumer>
+            { (store) => <ChatList chat_items_data={store.getState().chats.chat_items_data} /> }
+        </StoreContext.Consumer>
     );
 }
 

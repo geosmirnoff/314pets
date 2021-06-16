@@ -8,7 +8,7 @@ const Profile = (props) => {
         <div>
             <TopImg />
             <ProfileInfo />
-            <WallContainer store={props.store} />
+            <WallContainer /*store={props.store}*/ />
         </div>
     );
 }
