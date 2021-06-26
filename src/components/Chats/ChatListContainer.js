@@ -1,13 +1,21 @@
+import { connect } from 'react-redux';
 import ChatList from './ChatList';
-import StoreContext from './../../StoreContext';
 
-const ChatListContainer = () => {
+/*const ChatListContainer = () => {
 
     return (
-        <StoreContext.Consumer>
+        <Consumer>
             { (store) => <ChatList chat_items_data={store.getState().chats.chat_items_data} /> }
-        </StoreContext.Consumer>
+        </Consumer>
     );
+}*/
+
+let mapStateToProps = (state) => {
+    return {
+        chat_items_data: state.chats.chat_items_data
+    }
 }
+
+const ChatListContainer = connect(mapStateToProps)(ChatList);
 
 export default ChatListContainer;

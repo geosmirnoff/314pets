@@ -1,12 +1,12 @@
-import React from 'react';
+//import React from 'react';
 import { addPostCreateAction, updatePostTextCreateAction, doLikeCreateAction } from './../../../redux/profile-reducer';
 import Wall from './Wall';
-import StoreContext from './../../../StoreContext';
+import { connect } from 'react-redux';
 
-const WallContainer = (props) => {
+/*const oldWallContainer = (props) => {
 
     return (
-        <StoreContext.Consumer>
+        <Consumer>
             {
                 (store) => {
 
@@ -39,8 +39,36 @@ const WallContainer = (props) => {
                     )
                 }
             }
-        </StoreContext.Consumer>
+        </Consumer>
     );
+}*/
+
+let mapStateToProps = (state) => {
+
+    let profile = state.profile;
+
+    return {
+        posts_data: profile.posts_data,
+        new_post_text: profile.new_post_text,
+        post_symbol_limit: profile.post_symbol_limit
+    }
 }
+
+let mapDispatchToProps = (dispatch) => {
+    //debugger;
+    return {
+        updatePostText: (text) => {
+            dispatch(updatePostTextCreateAction(text))
+        },
+        addPost: () => {
+            dispatch(addPostCreateAction());
+        },
+        doLike: (id) => {
+            dispatch(doLikeCreateAction(id));
+        }
+    }
+}
+
+const WallContainer = connect(mapStateToProps, mapDispatchToProps)(Wall);
 
 export default WallContainer;

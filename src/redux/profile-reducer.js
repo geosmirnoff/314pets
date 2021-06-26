@@ -60,21 +60,23 @@ let initialState = {
 
 export const profileReducer = (state = initialState, action) => {
 
+    let stateChange = {...state};
+
     switch (action.type) {
 
         case UPDATE_POST_TEXT:
 
-            state.post_symbol_limit = 150 - action.text.length;
+            stateChange.post_symbol_limit = 150 - action.text.length;
             
-            if (state.post_symbol_limit >= 0) {
+            if (stateChange.post_symbol_limit >= 0) {
                 
-                state.new_post_text = action.text;
+                stateChange.new_post_text = action.text;
 
                 //this._rerenderEntireTree();
             }
             break;
         case ADD_POST:
-
+            
             let new_post = {
                 id: +state.posts_data[0].id + 1,
                 author: "Котокот",
@@ -84,26 +86,32 @@ export const profileReducer = (state = initialState, action) => {
                 likes_number: 0,
                 liked_by_me: false
             }
+            
+            stateChange.posts_data = [...state.posts_data];
 
-            state.posts_data.splice(0, 0, new_post);
+            stateChange.posts_data.splice(0, 0, new_post);
             //this._rerenderEntireTree();
-            state.new_post_text = "";
-            state.post_symbol_limit = 150;
+            stateChange.new_post_text = "";
+            stateChange.post_symbol_limit = 150;
             break;
         case DO_LIKE:
 
+            stateChange.posts_data = [...state.posts_data];
+
             for (let i = 0; i < state.posts_data.length; i++) {
 
-                if (state.posts_data[i].id === action.id) {
+                stateChange.posts_data[i] = {...state.posts_data[i]};
 
-                    switch (state.posts_data[i].liked_by_me) {
+                if (stateChange.posts_data[i].id === action.id) {
+
+                    switch (stateChange.posts_data[i].liked_by_me) {
                         case false:
-                            state.posts_data[i].likes_number = +state.posts_data[i].likes_number + 1;
-                            state.posts_data[i].liked_by_me = true;
+                            stateChange.posts_data[i].likes_number = +stateChange.posts_data[i].likes_number + 1;
+                            stateChange.posts_data[i].liked_by_me = true;
                             break;
                         case true:
-                            state.posts_data[i].likes_number = +state.posts_data[i].likes_number - 1;
-                            state.posts_data[i].liked_by_me = false;
+                            stateChange.posts_data[i].likes_number = +stateChange.posts_data[i].likes_number - 1;
+                            stateChange.posts_data[i].liked_by_me = false;
                             break;
                         default:
                             break;
@@ -112,7 +120,7 @@ export const profileReducer = (state = initialState, action) => {
             }
             break;
         default: 
-            return state;
+            return stateChange;
     }
-    return state;
+    return stateChange;
 }

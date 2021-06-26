@@ -1,12 +1,12 @@
 import CurrentChat from './CurrentChat';
-import React from 'react';
+//import React from 'react';
 import { sendMsgCreateAction, updateMsgTextCreateAction } from './../../redux/chat-reducer';
-import StoreContext from './../../StoreContext';
+import { connect } from 'react-redux';
 
-const CurrentChatContainer = () => {
+/*const oldCurrentChatContainer = () => {
 
     return (
-        <StoreContext.Consumer>
+        <Consumer>
             {
                 (store) => {
 
@@ -31,8 +31,33 @@ const CurrentChatContainer = () => {
                             updateMsgText={updateMsgText} />)
                 }
             }
-        </StoreContext.Consumer>
+        </Consumer>
     );
+}*/
+
+let mapStateToProps = (state) => {
+
+    let chats = state.chats;
+
+    return {
+        companion_name: chats.companion_name,
+        companion_img: chats.companion_img,
+        current_chat_data: chats.current_chat_data,
+        default_msg_val: chats.default_msg_val
+    }
 }
+
+let mapDispatchToProps = (dispatch) => {
+    return {
+        sendMsg: () => {
+            dispatch(sendMsgCreateAction())
+        },
+        updateMsgText: (text) => {
+            dispatch(updateMsgTextCreateAction(text))
+        }
+    }
+}
+
+const CurrentChatContainer = connect(mapStateToProps, mapDispatchToProps)(CurrentChat)
 
 export default CurrentChatContainer;

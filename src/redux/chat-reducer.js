@@ -105,11 +105,13 @@ let initialState = {
 
 export const chatReducer = (state = initialState, action) => {
 
+    let stateChange = {...state};
+
     switch (action.type) {
 
         case UPDATE_MSG_TEXT:
 
-            state.default_msg_val = action.text;
+            stateChange.default_msg_val = action.text;
             //this._rerenderEntireTree();
             break;
 
@@ -125,12 +127,15 @@ export const chatReducer = (state = initialState, action) => {
                 time: msg_time.toLocaleTimeString(),
                 direction: "from_me",
             }
-            state.current_chat_data.push(new_chat_item);
+
+            stateChange.current_chat_data = [...state.current_chat_data]
+
+            stateChange.current_chat_data.push(new_chat_item);
             //this._rerenderEntireTree();
-            state.default_msg_val = "";
+            stateChange.default_msg_val = "";
             break;
         default: 
-            return state;
+            return stateChange;
     }
-    return state;
+    return stateChange;
 }
