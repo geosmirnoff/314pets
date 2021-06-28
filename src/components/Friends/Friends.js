@@ -3,9 +3,9 @@ import style from './Friends.module.css';
 
 const Friends = (props) => {
     
-    let friend_items = props.data.friend_items_data.map((item) => 
+    let friend_items = props.friends.friend_items_data.map((item) => 
 
-        <FriendItem avatar={item.avatar} name={item.name} age={item.age} />
+        <FriendItem avatar={item.avatar} name={item.name} age={item.age} id={item.id} deleteFriend={props.deleteFriend} />
     );
     return (
         <div className={style.wrapper}>

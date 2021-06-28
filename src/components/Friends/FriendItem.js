@@ -1,6 +1,12 @@
 import style from './FriendItem.module.css';
 
 const FriendItem = (props) => {
+
+    const deleteFriend = () => {
+
+        props.deleteFriend(props.id)
+    }
+
     return (
         <div className={style.wrapper}>
             <section className={style.avatar}><img src={props.avatar} alt="ava" /></section>
@@ -9,7 +15,7 @@ const FriendItem = (props) => {
             <section className={style.actions}>
                 <ul className={style.actions_list}>
                     <li><a href="#c">Зайти в чат</a></li>
-                    <li><a href="#u">Раздружиться</a></li>
+                    <li><a href="#u" onClick={deleteFriend}>Раздружиться</a></li>
                 </ul>
             </section>
         </div>

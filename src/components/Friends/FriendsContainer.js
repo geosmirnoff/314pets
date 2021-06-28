@@ -1,14 +1,6 @@
 import { connect } from 'react-redux';
 import Friends from './Friends';
-
-/*const FriendsContainer = () => {
-
-    return (
-        <Consumer>
-            { (store) => <Friends data={store.getState().friends} /> }
-        </Consumer>
-    );
-}*/
+import { deleteFriendCreateAction } from './../../redux/friends-reducer';
 
 let mapStateToPorps = (state) => {
     return {
@@ -16,6 +8,14 @@ let mapStateToPorps = (state) => {
     }
 }
 
-const FriendsContainer = connect(mapStateToPorps)(Friends);
+let mapDispatchToProps = (dispatch) => {
+    return {
+        deleteFriend: (id) => {
+            dispatch(deleteFriendCreateAction(id))
+        }
+    }
+}
+
+const FriendsContainer = connect(mapStateToPorps, mapDispatchToProps)(Friends);
 
 export default FriendsContainer;

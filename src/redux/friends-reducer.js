@@ -1,16 +1,14 @@
-/*const SEND_MSG = "SEND-MSG";
-const UPDATE_MSG_TEXT = "UPDATE-MSG-TEXT";
-export const sendMsgCreateAction = () => {
+const DELETE_FRIEND = "DELETE-FRIEND";
+
+export const deleteFriendCreateAction = (id) => {
+
     return {
-        type: SEND_MSG
+        type: DELETE_FRIEND,
+        id: id
     }
 }
-export const updateMsgTextCreateAction = (text) => {
-    return {
-        type: UPDATE_MSG_TEXT,
-        text: text
-    }
-}*/
+
+
 let initialState = {
     friend_items_data: [
         {
@@ -42,33 +40,22 @@ let initialState = {
 };
 
 export const friendsReducer = (state = initialState, action) => {
+    
+    let stateChanged = {...state};
 
-    /*switch (action.type) {
+    switch (action.type) {
+        case DELETE_FRIEND:
+            
+            stateChanged.friend_items_data = [...state.friend_items_data];
 
-        /*case UPDATE_MSG_TEXT:
+            let friendIndex = stateChanged.friend_items_data.findIndex(item => item.id === action.id);
 
-            state.default_msg_val = action.text;
-            //this._rerenderEntireTree();
+            stateChanged.friend_items_data.splice(friendIndex, 1);
+
             break;
-
-        case SEND_MSG:
-
-            let msg_time = new Date();
-
-            let new_chat_item = {
-                companion_id: "id5",
-                message_id: "msg8",
-                text: state.default_msg_val,
-                date: format_date(new Date()),
-                time: msg_time.toLocaleTimeString(),
-                direction: "from_me",
-            }
-            state.current_chat_data.push(new_chat_item);
-            //this._rerenderEntireTree();
-            state.default_msg_val = "";
-            break;
-        default: 
+    
+        default:
             return state;
-    }*/
-    return state;
+    }
+    return stateChanged;
 }
